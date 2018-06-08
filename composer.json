@@ -2,7 +2,8 @@
     "name": "pushkar/php-useful",
     "description": "Contains various classes and functions to many common tasks in PHP.",
     "type": "library",
-    "license": "mit",
+  "homepage": "https://github.com/pushkar-anand/php-useful",
+  "license": "MIT",
     "authors": [
         {
             "name": "Pushkar Anand",
