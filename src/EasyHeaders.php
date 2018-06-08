@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyHeaders;
+namespace PhpUseful;
 
 
 class EasyHeaders

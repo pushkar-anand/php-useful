@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Functions;
+namespace PhpUseful;
 
 
 class Functions
