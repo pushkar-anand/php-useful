@@ -3,7 +3,12 @@
 
 namespace PhpUseful;
 
-
+/**
+ * Class Functions
+ * @package PhpUseful
+ *
+ * This class list all commonly used methods tha can be referenced statically
+ */
 class Functions
 {
     /**

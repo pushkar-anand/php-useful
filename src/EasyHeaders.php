@@ -2,7 +2,12 @@
 
 namespace PhpUseful;
 
-
+/**
+ * Class EasyHeaders
+ * @package PhpUseful
+ *
+ * This class list of the commonly used headers as easy to call static methods
+ */
 class EasyHeaders
 {
     static function bad_request()
