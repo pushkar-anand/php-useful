@@ -1,24 +1,26 @@
 {
-    "name": "pushkar/php-useful",
-    "description": "Contains various classes and functions to many common tasks in PHP.",
-    "type": "library",
+  "name": "pushkar/php-useful",
+  "description": "Contains various classes and functions to many common tasks in PHP.",
+  "type": "library",
   "homepage": "https://github.com/pushkar-anand/php-useful",
   "license": "MIT",
-    "authors": [
-        {
-            "name": "Pushkar Anand",
-            "email": "anandpushkar088@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-
-    "require": {
-        "php" : ">=7.0"
-    },
+  "authors": [
+    {
+      "name": "Pushkar Anand",
+      "email": "anandpushkar088@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
 
   "autoload": {
-    "psr-0":{
-      "PhpUseful": "src/"
+    "psr-4": {
+      "PhpUseful\\": "src"
     }
   }
 }
