@@ -18,7 +18,8 @@
 
   "autoload": {
     "psr-0":{
-      "Functions" : "src/"
+      "Functions": "src/Functions.php",
+      "EasyHeaders": "src/EasyHeaders.php"
     }
   }
 }
