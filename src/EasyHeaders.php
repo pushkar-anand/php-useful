@@ -106,6 +106,15 @@ class EasyHeaders
         exit();
     }
 
+
+    static function unprocessable_entity()
+    {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity',
+            true,
+            422);
+        exit();
+    }
+
     static function json_header()
     {
         header('Content-Type: application/json');
@@ -145,5 +154,6 @@ class EasyHeaders
     {
         header('Content-Type: text/plain');
     }
-
 }
+
+
