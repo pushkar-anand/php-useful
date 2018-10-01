@@ -106,21 +106,6 @@ class EasyHeaders
         exit();
     }
 
-    static function forbidden()
-    {
-        header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden',
-            true,
-            403);
-        exit();
-    }
-
-    static function unauthorized()
-    {
-        header($_SERVER['SERVER_PROTOCOL'] . ' 401 Unauthorized',
-            true,
-            401);
-        exit();
-    }
 
     static function unprocessable_entity()
     {
@@ -135,7 +120,7 @@ class EasyHeaders
         header('Content-Type: application/json');
     }
 
-        static function pdf_header()
+    static function pdf_header()
     {
         header('Content-Type: application/pdf');
     }
@@ -169,5 +154,6 @@ class EasyHeaders
     {
         header('Content-Type: text/plain');
     }
+}
 
 
