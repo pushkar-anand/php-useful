@@ -14,7 +14,7 @@ class FunctionsTest extends TestCase
 
     public function testMethodrandom_string()
     {
-        $var = Functions::random_string(10);
+        $var = Functions::randomString(10);
         $this->assertTrue(is_string($var));
         unset($var);
     }
