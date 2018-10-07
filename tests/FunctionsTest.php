@@ -12,10 +12,11 @@ class FunctionsTest extends TestCase
         unset($var);
     }
 
-    public function testMethodrandom_string()
+    public function testMethodRandomString()
     {
         $var = Functions::randomString(10);
         $this->assertTrue(is_string($var));
+        $this->assertTrue(strlen($var) == 10);
         unset($var);
     }
 }
