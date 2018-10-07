@@ -3,11 +3,11 @@
  
  A library of all commonly used PHP things.
  
- [Functions.php](): has some most used functions
+ [Functions.php](https://github.com/pushkar-anand/php-useful/blob/master/src/Functions.php): has some most used functions
  
- [EasyHeaders.php](): has methods to easily set headers
+ [EasyHeaders.php](https://github.com/pushkar-anand/php-useful/blob/master/src/EasyHeaders.php): has methods to easily set headers
  
- [Curl.php](): a wrapper for PHP ext-curl.
+ [Curl.php](https://github.com/pushkar-anand/php-useful/blob/master/src/Curl.php): a wrapper for PHP ext-curl.
  
 ## Installation
 
