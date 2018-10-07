@@ -16,7 +16,7 @@ class Functions
      * @param int $length
      * @return string
      */
-    static function random_string(int $length): string
+    public static function randomString(int $length): string
     {
         $characters = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789';
         $string = '';
@@ -31,7 +31,7 @@ class Functions
      * @param string $input
      * @return string
      */
-    static function escape_input(string $input): string
+    public static function escapeInput(string $input): string
     {
         $escaped_input = htmlspecialchars(stripslashes(trim($input)));
         return $escaped_input;
