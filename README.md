@@ -1,13 +1,55 @@
  
- # **php-useful**
+ # php-useful
+ 
+ A library of all commonly used PHP things.
+ 
+ [Functions.php](): has some most used functions
+ 
+ [EasyHeaders.php](): has methods to easily set headers
+ 
+ [Curl.php](): a wrapper for PHP ext-curl.
+ 
+## Installation
 
- **installation**
+Use composer
  
 `composer require pushkar/php-useful`
 
+Or download the source and include mannualy
+
 ## Usage 
 
-### EasyHeaders
+When using composer require the autoload file at the start of the php script
+```php 
+ require_once __DIR__ . '/path/to/vendor/autoload.php';
+```
+Add the namespace
+```php
+ use PhpUseful\Functions;   // for using the Functions class
+ use PhpUseful\EasyHeaders; // for using the EasyHeader class
+ use PhpUseful\Curl;        // for using the Curl class;
+```
+All the methods are static except in the Curl class so you can directly use them without creating the class object.
+
+
+#### Functions class
+Example usage
+```php
+ $random_ str = Functions::random_string(int $length);
+```
+All the class methods are listed below.
+```php
+    static function random_string(int $length): string      // returns a random string of given length
+    static function escape_input(string $input): string     // returns escaped string for the given input string
+```
+
+#### EasyHeaders
+
+For using methods from Easy class  
+```php
+ EasyHeaders::not_found();
+```
+All the class methods are listed below.
 ```php
 /**
 * Sends a 301 MOVED PERMANENTLY header.
@@ -114,3 +156,46 @@ static function js_header()
 */
 static function text_header()
 ```
+
+#### Curl class
+
+Example usage 
+```php
+    require_once __DIR__ . '/path/to/vendor/autoload.php';
+    use PhpUseful\Curl;
+    
+    $curl = new Curl();
+    $curl->setUrl('http://example.com');
+    $curl->execute();
+```
+
+All methods 
+```php
+    //Required. sets the url for the curl request. Throws Exception on invalid url.
+    function setUrl(string $url)  
+    
+    // Set headers for the curl request
+    function setHeaders(array $headers)     
+    
+    // when set to true it return the result of the curl_exec() as a string instead of outputting it directly.
+    function setReturn(bool $bool)
+    
+    // when set to true POST method is used for the curl request
+    function usePost(bool $bool)
+    
+    // set data to be sent via POST. For this to work usePost() should be set to true
+    function setArrayPostData(array $data)
+    
+    // set data to be sent via POST. For this to work usePost() should be set to true
+    function setStringPostData(string $data)
+    
+    // Call this after setting all url, headers, method & data
+    function execute()
+    
+    // return the headers sent for the curl request.
+    function getSentHeader()
+    
+    // return the reponse. Will work only when setReturn() is set to true.
+    function getResult()
+```
+
