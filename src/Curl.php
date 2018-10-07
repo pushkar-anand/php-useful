@@ -57,6 +57,17 @@ class Curl
     }
 
     /**
+     * when set to true POST is used
+     * @param bool $bool
+     */
+    public function usePost(bool $bool)
+    {
+        if ($bool) {
+            curl_setopt($this->curl, CURLOPT_POST, 1);
+        }
+    }
+
+    /**
      *set data to be sent via POST
      * @param array $data
      */
@@ -74,16 +85,6 @@ class Curl
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, $data);
     }
 
-    /**
-     * when set to true POST is used
-     * @param bool $bool
-     */
-    public function usePost(bool $bool)
-    {
-        if ($bool) {
-            curl_setopt($this->curl, CURLOPT_POST, 1);
-        }
-    }
 
     /**
      *Execute the curl request and store the results
