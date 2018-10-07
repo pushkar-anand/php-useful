@@ -35,12 +35,12 @@ All the methods are static except in the Curl class so you can directly use them
 #### Functions class
 Example usage
 ```php
- $random_ str = Functions::random_string(int $length);
+ $random_ str = Functions::randomString(int $length);
 ```
 All the class methods are listed below.
 ```php
-    static function random_string(int $length): string      // returns a random string of given length
-    static function escape_input(string $input): string     // returns escaped string for the given input string
+    static function randomString(int $length): string      // returns a random string of given length
+    static function escapeInput(string $input): string     // returns escaped string for the given input string
 ```
 
 #### EasyHeaders
