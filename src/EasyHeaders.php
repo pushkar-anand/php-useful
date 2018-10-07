@@ -7,28 +7,7 @@ namespace PhpUseful;
  * @package PhpUseful
  *
  * This class list of the commonly used headers as easy to call static methods
- * 
- * @method moved_permanently()
- * @method found()
- * @method bad_request()
- * @method unauthorized()
- * @method forbidden()
- * @method not_found()
- * @method request_timeout()
- * @method server_error
- * @method not_implemented()
- * @method bad_gateway()
- * @method service_unavailable
- * @method gateway_timeout()
- * @method unprocessable_entity()
- * @method json_header()
- * @method pdf_header()
- * @method xml_header()
- * @method download_header()
- * @method html_header()
- * @method css_header()
- * @method js_header
- * @method text_header()
+ *
  * 
  */
 class EasyHeaders
