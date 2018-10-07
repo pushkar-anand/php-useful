@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eeac08573971f346814876a540aae5f5",
+    "content-hash": "dc6833022140fc3d4742ddbf09b7d02e",
     "packages": [],
     "packages-dev": [
         {
@@ -685,12 +685,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "be6564ea49b96b9776c53f627a49683ec2687ce5"
+                "reference": "abd6dba233d88b81e04291df41c99ae4e6cd9410"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/be6564ea49b96b9776c53f627a49683ec2687ce5",
-                "reference": "be6564ea49b96b9776c53f627a49683ec2687ce5",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/abd6dba233d88b81e04291df41c99ae4e6cd9410",
+                "reference": "abd6dba233d88b81e04291df41c99ae4e6cd9410",
                 "shasum": ""
             },
             "require": {
@@ -735,7 +735,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.4-dev"
+                    "dev-master": "7.5-dev"
                 }
             },
             "autoload": {
@@ -761,7 +761,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-09-28T20:05:46+00:00"
+            "time": "2018-10-05T14:00:01+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
