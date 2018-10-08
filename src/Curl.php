@@ -85,6 +85,53 @@ class Curl
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, $data);
     }
 
+    /**
+     * set port to be used for request
+     * @param int $port
+     */
+    public function setPort(int $port)
+    {
+        curl_setopt($this->curl, CURLOPT_PORT, $port);
+    }
+
+    /**
+     * set the max number of redirects that will be followed
+     * @param int $max
+     */
+    public function setMaxRedirects(int $max)
+    {
+        curl_setopt($this->curl, CURLOPT_MAXREDIRS, $max);
+    }
+
+    /**
+     * set timeout for request
+     * @param int $timeout time in seconds
+     */
+    public function setTimeout(int $timeout)
+    {
+        curl_setopt($this->curl, CURLOPT_TIMEOUT, $timeout);
+    }
+
+    /**
+     * set the credentials used for HTTP authentication
+     * @param string $username
+     * @param string $password
+     */
+    public function setCredentials(string $username, string $password)
+    {
+        $userpwd = $username . ':' . $password;
+        curl_setopt($this->curl, CURLOPT_USERPWD, $userpwd);
+    }
+
+    /**
+     * set any CURLOPT_XXX option
+     * @param int $option
+     * @param mixed $value
+     */
+    public function setOption(int $option, mixed $value)
+    {
+        curl_setopt($this->curl, $option, $value);
+    }
 
     /**
      *Execute the curl request and store the results
