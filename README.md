@@ -188,6 +188,21 @@ All methods
     
     // set data to be sent via POST. For this to work usePost() should be set to true
     function setStringPostData(string $data)
+
+    // set the port number which will be used for the request
+    function setPort(int $port)
+
+    // set the max number of redirects that this request will follow
+    function setMaxRedirects(int $max)
+
+    // set the timeout for this request (in seconds)
+    function setTimeout(int $timeout)
+
+    // set the username and password to be used for HTTP authentication
+    function setCredentials(string $username, string $password)
+
+    // set any valid CURL option in case a helper method isn't present
+    function setOption(int $option, mixed $value)
     
     // Call this after setting all url, headers, method & data
     function execute()
