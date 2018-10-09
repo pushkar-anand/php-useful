@@ -37,6 +37,24 @@ class Curl
     }
 
     /**
+     * when set to true it follows any "Location: " header that the server sends as part of the HTTP header.
+     * @param bool $bool
+     */
+    public function setFollowLocation(bool $bool)
+    {
+        curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, $bool);
+    }
+
+    /**
+     * when set to true it determines whether curl verifies the authenticity of the peer's certificate.
+     * @param bool $bool
+     */
+    public function setVerifypeer(bool $bool)
+    {
+        curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, $bool);
+    }
+
+    /**
      * Set headers for the curl request
      * @param array $headers
      */
