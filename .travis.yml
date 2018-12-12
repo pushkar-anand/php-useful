@@ -8,9 +8,8 @@ php:
 - '7.3'
 - nightly
 
-script: ./vendor/bin/phpunit
 
 before_script:
-- pwd
-- php -v
-- composer install --no-interaction --prefer-source
+  - chmod +x ./script.sh
+
+script: ./script.sh
