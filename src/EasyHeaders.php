@@ -45,6 +45,17 @@ class EasyHeaders
             400);
         exit();
     }
+    
+    /**
+     * Sends a Redirect header.
+     * @param string $location
+     * 
+     */
+    static function redirect(string $location)
+    {
+        header('Location:  '.  $location);
+        exit();
+    }    
 
     /**
      * Sends a 401 UNAUTHORIZED header.
