@@ -21,9 +21,11 @@ class MySQLHelper
      */
     public function __construct(string $db_server, string $db_user, string $db_password, string $db)
     {
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $this->conn = new mysqli($db_server, $db_user, $db_password, $db);
-        if ($this->conn->error) {
-            throw new Exception($this->conn->error);
+        if ($this->conn->connect_error) {
+            error_log("Error: " . $this->conn->connect_error);
+            throw new Exception("Error connecting to database: " . $this->conn->connect_error);
         }
     }
 
@@ -42,17 +44,31 @@ class MySQLHelper
      * @param string $table - pass the table name to insert to
      * @param array $fields - the table fields
      * @param string $params
-     * @param string ...$vals - the values to insert
+     * @param string ...$values
+     * @throws Exception
      */
-    public function insert(string $table, array $fields, string $params, string ...$vals)
+    public function insert(string $table, array $fields, string $params, string ...$values)
     {
         $fieldsSTR = implode(",", $fields);
         $c = str_repeat("?, ", count($fields));
         $placeholders = rtrim($c, ", ");
         $query = "INSERT INTO $table($fieldsSTR) VALUES($placeholders)";
+
+        error_log("Generated INSERT query " . __FILE__ . ":" . __LINE__ . ": $query");
+
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param($params, $vals);
-        $stmt->execute();
+
+        if ($stmt !== false) {
+            if ($stmt->bind_param($params, ...$values)) {
+                if (!$stmt->execute()) {
+                    throw new Exception("Error in query execution at line " . 50 . " in " . __FILE__);
+                }
+            } else {
+                throw new Exception("Error in binding params at line " . 49 . " in " . __FILE__);
+            }
+        } else {
+            throw new Exception("Couldn't prepare the mysql query.");
+        }
     }
 
 
