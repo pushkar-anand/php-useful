@@ -5,6 +5,7 @@ namespace PhpUseful;
 
 use Exception;
 use mysqli;
+use mysqli_result;
 
 class MySQLHelper
 {
@@ -151,6 +152,46 @@ class MySQLHelper
         $stmt->execute();
         $res = $stmt->get_result();
         return $res->fetch_assoc();
+    }
+
+    /**
+     * Fetches all the rows that matches form a table.
+     * @param string $table
+     * @param string $where_field
+     * @param $match
+     * @return array
+     */
+    public function fetchAllMatchingRows(string $table, string $where_field, $match): array
+    {
+        $all = array();
+
+        $query = "SELECT * FROM $table WHERE $where_field = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if (is_int($match)) {
+            $stmt->bind_param("i", $match);
+        } else {
+            $stmt->bind_param("s", $match);
+        }
+
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        while ($row = $res->fetch_assoc()) {
+            array_push($all, $row);
+        }
+        return $all;
+    }
+
+    /**
+     * Fetches all the results in a table
+     * @param string $table
+     * @return bool|mysqli_result
+     */
+    public function fetchAll(string $table)
+    {
+        $query = "SELECT * FROM $table";
+        return $this->conn->query($query);
     }
 
 }
