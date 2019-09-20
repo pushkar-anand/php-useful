@@ -134,14 +134,20 @@ class MySQLHelper
     /**
      * @param string $table
      * @param string $where_field
-     * @param string $match
+     * @param string|int $match
      * @return array|null
      */
-    public function fetchRow(string $table, string $where_field, string $match)
+    public function fetchRow(string $table, string $where_field, $match)
     {
         $query = "SELECT * FROM $table WHERE $where_field = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("s", $match);
+
+        if (is_int($match)) {
+            $stmt->bind_param("i", $match);
+        } else {
+            $stmt->bind_param("s", $match);
+        }
+
         $stmt->execute();
         $res = $stmt->get_result();
         return $res->fetch_assoc();
