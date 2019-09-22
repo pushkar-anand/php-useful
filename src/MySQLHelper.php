@@ -46,6 +46,7 @@ class MySQLHelper
      * @param array $fields - the table fields
      * @param string $params
      * @param string ...$values
+     * @return mixed
      * @throws Exception
      */
     public function insert(string $table, array $fields, string $params, string ...$values)
@@ -63,6 +64,8 @@ class MySQLHelper
             if ($stmt->bind_param($params, ...$values)) {
                 if (!$stmt->execute()) {
                     throw new Exception("Error in query execution at line " . 50 . " in " . __FILE__);
+                } else {
+                    return $this->conn->insert_id;
                 }
             } else {
                 throw new Exception("Error in binding params at line " . 49 . " in " . __FILE__);
