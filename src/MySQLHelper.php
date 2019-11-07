@@ -141,7 +141,7 @@ class MySQLHelper
      * @param string $where_field
      * @param string|int $match
      * @return array|null
-     * @throws Exception
+     * @throws RowNotFoundException
      */
     public function fetchRow(string $table, string $where_field, $match)
     {
