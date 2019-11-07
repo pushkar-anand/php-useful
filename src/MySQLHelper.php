@@ -6,6 +6,7 @@ namespace PhpUseful;
 use Exception;
 use mysqli;
 use mysqli_result;
+use PhpUseful\Exception\RowNotFoundException;
 
 class MySQLHelper
 {
@@ -140,6 +141,7 @@ class MySQLHelper
      * @param string $where_field
      * @param string|int $match
      * @return array|null
+     * @throws Exception
      */
     public function fetchRow(string $table, string $where_field, $match)
     {
@@ -154,6 +156,9 @@ class MySQLHelper
 
         $stmt->execute();
         $res = $stmt->get_result();
+        if ($res->num_rows === 0) {
+            throw new RowNotFoundException("No rows matched.");
+        }
         return $res->fetch_assoc();
     }
 
